@@ -40,7 +40,7 @@ document.getElementById("solveRoom3").addEventListener("click", async () => {
 });
 
 function findMostRecentBook(books) {
-  // 🪲 Bug: Logic error
+  // 🪲 Bug: Logic error////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return books.reduce((mostRecent, book) =>
     new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent
   );
@@ -48,7 +48,12 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
   // 🪲 Bug: Incorrect logic
-  const intersection = new Set([...setA]);
+  const intersection = new Set();
+  for (const concept of setA) {
+    if (setB.has(concept)) {
+      intersection.add(concept);
+    }
+  }
   return intersection;
 }
 
